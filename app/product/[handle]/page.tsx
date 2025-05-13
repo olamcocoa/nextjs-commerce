@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import { Articles } from 'components/articles';
 import { GridTileImage } from 'components/grid/tile';
 import Footer from 'components/layout/footer';
 import { Gallery } from 'components/product/gallery';
@@ -11,6 +12,7 @@ import { getProduct, getProductRecommendations } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
 import Link from 'next/link';
 import { Suspense } from 'react';
+
 
 export async function generateMetadata(props: {
   params: Promise<{ handle: string }>;
@@ -104,6 +106,9 @@ export default async function ProductPage(props: { params: Promise<{ handle: str
           </div>
         </div>
         <RelatedProducts id={product.id} />
+
+        <Articles />
+        
       </div>
       <Footer />
     </ProductProvider>
