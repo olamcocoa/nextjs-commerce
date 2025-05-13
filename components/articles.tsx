@@ -1,11 +1,12 @@
 import { getAllArticles } from "lib/api";
+import Link from 'next/link';
 
 export async function Articles() {
 const articles = await getAllArticles();
       
 return (
     <>
-    {/* {articles?.map((article) => (
+    {articles?.map((article: any) => (
         <article key={article.sys.id} className="h-full flex flex-col rounded-lg shadow-lg overflow-hidden">
         <div className="flex-1 p-6">
           <Link href={`/articles/${article.slug}`}>
@@ -32,7 +33,7 @@ return (
           </div>
         </div>
       </article>
-     ))} */}
+     ))}
      </>   
   );
 }    
